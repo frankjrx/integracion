@@ -2,7 +2,10 @@ name: CI Test
 
 on:
   push:
-    branches: [main]  # Ejecutar solo para el branch 'main'
+    branches: 
+    - main
+    - dev
+
   pull_request:
     branches: [main]  # Ejecutar también para solicitudes de extracción a 'main'
 
