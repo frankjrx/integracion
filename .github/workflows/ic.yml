@@ -1,0 +1,26 @@
+name: CI Test
+
+on:
+  push:
+    branches: [main]  # Ejecutar solo para el branch 'main'
+  pull_request:
+    branches: [main]  # Ejecutar también para solicitudes de extracción a 'main'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Asegúrate de usar la versión que prefieras
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
